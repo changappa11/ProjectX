@@ -1,0 +1,32 @@
+<%- include('includes/head.ejs') %>
+
+    <section id="featured-video">
+        <div class="container">
+            <h2>Featured Video</h2>
+            <div class="video-container"></div>
+                <video width="500px" height="250px" controls="controls">
+                    <source src="/home/charan/Documents/ProjectX/uploads/Creating_Release_Branch_BitBucket.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    <section id="trending-videos">
+        <div class="container">
+            <h2>Trending Videos</h2>
+            <div class="video-grid">
+                <!-- Trending video thumbnails -->
+                <div class="video-thumbnail">
+                    <img src="thumbnail1.jpg" alt="Video Thumbnail">
+                    <h3>Title of Trending Video</h3>
+                </div>
+                <div class="video-thumbnail">
+                    <img src="thumbnail2.jpg" alt="Video Thumbnail">
+                    <h3>Title of Trending Video</h3>
+                </div>
+                <!-- Add more trending videos -->
+            </div>
+        </div>
+    </section>
+    
+    <%- include('includes/end.ejs') %>

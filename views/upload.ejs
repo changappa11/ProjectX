@@ -1,0 +1,83 @@
+<%- include('includes/head.ejs') %>
+    
+    <section id="featured-video">
+        <div class="upload-form">
+            <h2>Upload Video</h2>
+            <form id="videoUploadForm" action="/uploading" method="POST" enctype="multipart/form-data" enctype="multipart/form-data">
+              <input type="file" id="videoFile" name="videoFile" accept="video/*" required onchange="showSelectedFile()">
+              <label for="videoFile">Choose Video</label>
+              <p id="selectedFileName"></p>
+              <input type="submit" value="Upload">
+            </form>
+          </div>
+        
+          <script>
+            function displayFileName() {
+        const fileInput = document.getElementById('fileInput');
+        const selectedFile = document.getElementById('selectedFile');
+        selectedFile.textContent = "Selected file: " + fileInput.files[0].name;
+    }
+    function showSelectedFile() {
+        const fileInput = document.getElementById('videoFile');
+        const selectedFileName = document.getElementById('selectedFileName');
+        const file = fileInput.files[0];
+        if (file) {
+            selectedFileName.textContent = `Selected file: ${file.name}`;
+        } else {
+            selectedFileName.textContent = "";
+        }
+    }
+
+    function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert('Please select a file to upload.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        // You can use fetch or XMLHttpRequest to send the file data to the server.
+        // Example using fetch:
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('File uploaded successfully!');
+            } else {
+                alert('Error uploading file.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error uploading file.');
+        });
+    }
+    
+          </script>
+    </section>
+    
+    <section id="trending-videos">
+        <div class="container">
+            <h2>Trending Videos</h2>
+            <div class="video-grid">
+                <!-- Trending video thumbnails -->
+                <div class="video-thumbnail">
+                    <img src="#" alt="Video Thumbnail">
+                    <h3>Title of Trending Video</h3>
+                </div>
+                <div class="video-thumbnail">
+                    <img src="#" alt="Video Thumbnail">
+                    <h3>Title of Trending Video</h3>
+                </div>
+                <!-- Add more trending videos -->
+            </div>
+        </div>
+    </section>
+    
+    <%- include('includes/end.ejs') %>

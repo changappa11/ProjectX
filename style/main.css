@@ -1,0 +1,85 @@
+/* Custom CSS for this page */
+body {
+    background-color: #f0e6ff; /* Light Violet */
+    color: #000; /* Black */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6013d4; /* Violet */
+    color: #fff; /* White */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+div h1 {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    color: white;
+    font-size: 24px; 
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White */
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f0e6ff; /* Light Violet */
+}
+
+#featured-video {
+    background-color: #fff; /* White */
+    padding: 20px 0;
+    text-align: center;
+}
+
+#trending-videos {
+    background-color: #f0e6ff; /* Light Violet */
+    padding: 20px 0;
+}
+
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.video-thumbnail {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.video-thumbnail img {
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #000; /* Black */
+    color: #fff; /* White */
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
