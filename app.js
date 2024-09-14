@@ -1,23 +1,23 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const homeRouter = require('./routes/home')
-const http = require("http");
-const videoController = require('./controllers/error');
+const express = require('express');
+const cookieParser = require('cookie-parser');
 const path = require('path');
-const bodyParser = require("body-parser");
+const authRoutes = require('./routes/auth');
+const postRoutes = require('./routes/posts');
+require('./config/db');
 
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
+// Set EJS as the templating engine
 app.set('view engine', 'ejs');
-app.set('views', __dirname+'/views');
+app.set('views', path.join(__dirname, 'views'));
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use('/auth', authRoutes);
+app.use('/', postRoutes);
 
-app.use(express.static(path.join(__dirname,'style')))
-
-app.use(homeRouter.routes);
-app.use(videoController.get404);
-
-const server = http.createServer(app);
-
-server.listen(port);
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});

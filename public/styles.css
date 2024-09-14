@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c; /* Dark background */
+    color: #d6a1d2; /* Purple text */
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4d3f6c; /* Purple header */
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #3c2f4a; /* Darker purple for forms */
+    border-radius: 5px;
+  }
+  
+  input, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  button {
+    background-color: #4d3f6c; /* Purple button */
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3c2f4a; /* Darker purple on hover */
+  }
+  
+  .post {
+    background: #3c2f4a; /* Darker purple for posts */
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .post img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  
