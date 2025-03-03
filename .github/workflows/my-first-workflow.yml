@@ -26,5 +26,5 @@ jobs:
       - name: Install node deps
         run: npm install
       - name: Run the application
-        run: node app.js
+        run: node app.js 
         
