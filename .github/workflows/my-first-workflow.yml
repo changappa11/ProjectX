@@ -1,0 +1,18 @@
+name: Deploy website
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run: npm install
+      - name: Say installed
+        run: echo Installed deps
+      - name: Run website
+        run: node app.js
+        
