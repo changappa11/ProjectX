@@ -9,10 +9,20 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Install deps
+      - name: MongoDB installation
+        run: wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+      - name: Create a list file for MongoDB
+        run: echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+      - name: Reload local package database
+        run: sudo apt-get update
+      - name: Install the MongoDB packages
+        run: sudo apt-get install -y mongodb-org
+      - name: Start MongoDB
+        run: sudo systemctl start mongod
+      - name: Verify that MongoDB has started successfully
+        run: sudo systemctl status mongod
+      - name: Install node deps
         run: npm install
-      - name: Say installed
-        run: echo Installed deps
-      - name: Run website
+      - name: Run the application
         run: node app.js
         
